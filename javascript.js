@@ -17,7 +17,7 @@ function getUserChoice() {
 
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * choices.length);
-    return console.log(`The computer has selected:` + ' ' + choices[computerChoice]); // Returns 'rock', 'paper', or 'scissors'
+    return choices[computerChoice]; // Returns 'rock', 'paper', or 'scissors'
         
 }
 
@@ -42,7 +42,7 @@ function determineWinner(userChoice, computerChoice) {
     }
 }
 
-function playGame() {
+function playRound() {
     let userChoice = getUserChoice();
     if (!userChoice) return; // Exit if user choice is invalid
 
@@ -58,11 +58,12 @@ function playGame() {
     console.log(`Current Scores - Player: ${humanScore}, Computer: ${computerScore}`);
 }
 
-playGame();
+function playGame() {
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+    playRound();
+}
 
-playGame();
-
-playGame();
-
-playGame();
-
+playGame()
