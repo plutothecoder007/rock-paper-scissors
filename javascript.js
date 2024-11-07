@@ -10,9 +10,16 @@ function getUserChoice(input) {
     }
 }
 
+function getComputerChoice() {
+    let computerChoice = Math.floor(Math.random() * choices.length)
+        if (computerChoice === 0) {
+            return `Computer picked: Rock`
+        } else if (computerChoice === 1) {
+            return `Computer picked: Paper`
+        } else {
+            return `Computer picked: Scissors`
+        }
+}
 
 
 
-// function getComputerChoice () {
-//     let computerChoice = 
-// }
