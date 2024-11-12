@@ -42,10 +42,9 @@ function determineWinner(userChoice, computerChoice) {
     }
 }
 
-function playRound() {
-    let userChoice = getUserChoice();
-    if (!userChoice) return; // Exit if user choice is invalid
+const result = document.querySelector("div");       //Creates div where result will be outputted
 
+function playRound(userChoice) {
     let computerChoice = getComputerChoice();
     let winner = determineWinner(userChoice, computerChoice);
 
@@ -55,15 +54,23 @@ function playRound() {
         computerScore++;
     }
 
-    console.log(`Current Scores - Player: ${humanScore}, Computer: ${computerScore}`);
+    
+result.textContent = `Current Scores - Player: ${humanScore}, Computer: ${computerScore}`;
+
+if (computerScore >= 5) {
+    result.textContent = `The computer has won!`   
+} else if (humanScore >= 5) {
+    result.textContent = `You have won!`
+}
 }
 
-function playGame() {
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-}
+document.querySelector("#rock").addEventListener("click", () => playRound('rock'));
+document.querySelector("#paper").addEventListener("click", () => playRound('paper'));
+document.querySelector("#scissors").addEventListener("click", () => playRound('scissors'));
 
-playGame()
+document.querySelector("#reset").addEventListener("click", function resetGame() {
+    result.textContent = `Let's play!`;
+    computerScore = 0;
+    humanScore = 0;
+})
+
